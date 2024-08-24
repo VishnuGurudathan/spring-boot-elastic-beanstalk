@@ -1,0 +1,45 @@
+## Project : GIPS
+
+## Developed At : 
+
+### Created On : 20-08-2023
+
+#### Repo : 
+
+GIPS app infrastructure as code (IaC)
+
+terraform --version
+terraform init
+terraform fmt
+terraform validate
+
+terraform plan
+terraform apply
+terraform show
+terraform destroy
+
+###### Terraform backend with s3
+
+terraform get -update=true
+
+###### Development
+
+terraform init -backend-config="./envs/dev/tfstate.conf"
+terraform plan -var-file=./envs/dev/env.tfvars
+terraform apply -var-file=./envs/dev/env.tfvars
+terraform destroy -var-file=./envs/dev/env.tfvars
+
+###### QA
+
+terraform init -backend-config=./envs/qa/tfstate.conf
+terraform plan -var-file=./envs/qa/env.tfvars
+terraform apply -var-file=./envs/qa/env.tfvars
+terraform destroy -var-file=./envs/qa/env.tfvars
+
+###### UAT
+
+terraform init -backend-config=./envs/uat/tfstate.conf
+terraform apply -var-file=./envs/uat/env.tfvars
+terraform destroy -var-file=./envs/uat/env.tfvars
+
+###### Production
