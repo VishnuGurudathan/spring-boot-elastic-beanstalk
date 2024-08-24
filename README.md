@@ -55,7 +55,7 @@ spring-boot-elastic-beanstalk/
     cache: java -jar mycache.jar
     web_foo: java -jar other.jar```
     
-- The command that runs the main JAR in your application must be called web, and it must be the first command listed in your Procfile.
+- The command that runs the main JAR in your application must be named web, and it must be the first command listed in your Procfile. For this application, the Procfile should contain ```web: java -jar web-app.jar``` as the first and only command since no other services will run alongside.
 - Elastic Beanstalk forwards all HTTP requests from your environment's load balancer to this application.
 - Elastic Beanstalk assumes that all entries in the Procfile should run at all times and automatically restarts any application defined in the Procfile that terminates.
 
